@@ -12,18 +12,28 @@
 <body>
   <!-- Animated Background -->
   <div class="bg-container">
-    <div class="bg-pattern"></div>
+    <div class="tile"></div>
   </div>
 
   <!-- Topbar -->
   <nav class="topbar">
     <div class="logo">1Picklet</div>
     <div class="nav">
-      <a href="#" class="navlink" aria-current="page" title="Home">🏠</a>
-      <a href="#" class="navlink" title="Explore">🔍</a>
-      <a href="#" class="navlink" title="Clans">🛡️</a>
-      <a href="#" class="navlink" title="Store">🛒</a>
-      <a href="#" class="navlink" title="Profile">👤</a>
+      <a href="#" class="navlink" aria-current="page" title="Home">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+      </a>
+      <a href="#" class="navlink" title="Explore">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </a>
+      <a href="#" class="navlink" title="Clans">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </a>
+      <a href="#" class="navlink" title="Store">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </a>
+      <a href="#" class="navlink" title="Profile">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
     </div>
   </nav>
 
@@ -39,28 +49,36 @@
       <h2 class="section-title">Featured</h2>
       <div class="grid">
         <div class="soft-panel">
-          <div class="panel-icon">🥒</div>
+          <div class="panel-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+          </div>
           <div>
             <h3>Picklet Core</h3>
             <p>The heart of the hub.</p>
           </div>
         </div>
         <div class="soft-panel">
-          <div class="panel-icon">⚡</div>
+          <div class="panel-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
           <div>
             <h3>Quick Join</h3>
             <p>Jump into the action.</p>
           </div>
         </div>
         <div class="soft-panel">
-          <div class="panel-icon">🏆</div>
+          <div class="panel-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>
+          </div>
           <div>
             <h3>Leaderboard</h3>
             <p>See who's on top.</p>
           </div>
         </div>
         <div class="soft-panel">
-          <div class="panel-icon">💬</div>
+          <div class="panel-icon">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
           <div>
             <h3>Community</h3>
             <p>Chat & connect.</p>
@@ -72,18 +90,10 @@
     <section class="section">
       <h2 class="section-title">More</h2>
       <div class="wide-panel">
-        <div class="soft-panel mini">
-          <span>News</span>
-        </div>
-        <div class="soft-panel mini">
-          <span>Events</span>
-        </div>
-        <div class="soft-panel mini">
-          <span>Guides</span>
-        </div>
-        <div class="soft-panel mini">
-          <span>Support</span>
-        </div>
+        <div class="soft-panel mini"><span>News</span></div>
+        <div class="soft-panel mini"><span>Events</span></div>
+        <div class="soft-panel mini"><span>Guides</span></div>
+        <div class="soft-panel mini"><span>Support</span></div>
       </div>
     </section>
   </main>
