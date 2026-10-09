@@ -1,3 +1,3 @@
 # 1Picklet
 
-Simple picklet hub site.
+Picklet hub — look up people’s Picklet accounts.
