@@ -1,73 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="default">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Picklet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Store | Picklet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Rubik:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="/store" data-route="store">Picklet</a>
-    <nav class="nav">
-      <a class="navlink" href="/collection" data-route="collection">Collection</a>
-      <a class="navlink" href="/store" data-route="store" aria-current="page">Store</a>
-    </nav>
-    <div class="balances">
-      <div class="balance" title="Jewels"><img src="https://assets.picklet.party/images/jewel.svg" alt=""> -1</div>
-      <div class="balance" title="Coins"><img src="https://assets.picklet.party/images/coin.svg" alt=""> -1</div>
-    </div>
-  </header>
+  <div class="app">
+    <div class="bg-tile" aria-hidden="true"></div>
 
-  <main id="page-store" class="page active">
-    <h1 class="page-title">Store</h1>
-    <div id="store-grid" class="shelf-grid"></div>
-  </main>
+    <header class="topbar">
+      <a class="brand" href="/store" data-route="store">Picklet</a>
+      <nav class="nav">
+        <a class="navlink" href="/collection" data-route="collection" id="nav-collection">Collection</a>
+        <a class="navlink" href="/store" data-route="store" id="nav-store" aria-current="page">Store</a>
+      </nav>
+      <div class="balances">
+        <div class="balance" title="Jewels">
+          <img src="https://assets.picklet.party/images/jewel.svg" alt="" width="20" height="20">
+          <span id="bal-jewels">-1</span>
+        </div>
+        <div class="balance" title="Coins">
+          <img src="https://assets.picklet.party/images/coin.svg" alt="" width="20" height="20">
+          <span id="bal-coins">-1</span>
+        </div>
+      </div>
+    </header>
 
-  <main id="page-collection" class="page">
-    <div class="col-header">
-      <h1 class="page-title" style="margin:0">Collection</h1>
-      <div class="col-stats"><span id="col-owned">0</span> / <span id="col-total">0</span> collected</div>
-    </div>
-    <div id="col-sections"></div>
-  </main>
+    <main id="page-store" class="page active">
+      <div class="page-inner">
+        <h1 class="page-title">Store</h1>
+        <div class="shelf">
+          <div id="store-grid" class="shelf-grid"></div>
+        </div>
+      </div>
+    </main>
 
-  <div id="odds-overlay" class="overlay">
-    <div class="modal md" role="dialog" aria-modal="true">
+    <main id="page-collection" class="page">
+      <div class="page-inner">
+        <div class="col-header">
+          <h1 class="page-title" style="margin:0">Collection</h1>
+          <div class="col-stats"><span id="col-owned">0</span> / <span id="col-total">0</span> collected</div>
+        </div>
+        <div id="col-sections"></div>
+      </div>
+    </main>
+  </div>
+
+  <div id="odds-overlay" class="overlay" hidden>
+    <div class="modal modal-md" role="dialog" aria-modal="true" aria-labelledby="odds-title">
       <button type="button" class="modal-close" id="odds-close" aria-label="Close">✕</button>
-      <h2 id="odds-title">Pack</h2>
+      <h2 id="odds-title">Color</h2>
       <ul id="odds-list" class="odds-list"></ul>
     </div>
   </div>
 
-  <div id="item-overlay" class="overlay">
-    <div class="modal sm center" role="dialog" aria-modal="true">
+  <div id="item-overlay" class="overlay" hidden>
+    <div class="modal modal-sm modal-center" role="dialog" aria-modal="true" aria-labelledby="item-name">
       <button type="button" class="modal-close" id="item-close" aria-label="Close">✕</button>
       <h2 id="item-name">Name</h2>
       <div class="rarity-line" id="item-rarity">Common · 50%</div>
-      <img class="item-img" id="item-img" alt="">
+      <img class="item-img" id="item-img" alt="" draggable="false">
       <p class="owned" id="item-owned">0 owned</p>
       <p class="worth" id="item-worth">Worth 0 coins each</p>
       <div class="btn-row">
         <button type="button" class="btn gray" id="item-sell" disabled>Sell</button>
         <button type="button" class="btn gray" id="item-list" disabled>List</button>
       </div>
-      <div class="btn-row2">
+      <div class="btn-row">
         <button type="button" class="btn primary" id="item-equip" disabled>Equip</button>
       </div>
     </div>
   </div>
 
-  <div id="sell-overlay" class="overlay">
-    <div class="modal sm" role="dialog" aria-modal="true">
+  <div id="sell-overlay" class="overlay" hidden>
+    <div class="modal modal-sm" role="dialog" aria-modal="true">
       <p class="sell-text" id="sell-text">How many would you like to sell?</p>
       <div class="qty-row">
-        <button type="button" class="btn red" id="sell-minus" style="flex:0;padding:0.25rem 0.75rem;font-size:1.25rem">−</button>
+        <button type="button" class="btn red qty-btn" id="sell-minus">−</button>
         <input type="number" id="sell-qty" min="1" max="1" value="1" aria-label="Quantity">
-        <button type="button" class="btn primary" id="sell-plus" style="flex:0;padding:0.25rem 0.75rem;font-size:1.25rem">+</button>
+        <button type="button" class="btn primary qty-btn" id="sell-plus">+</button>
       </div>
       <div class="actions">
         <button type="button" class="btn gray" id="sell-cancel">Cancel</button>

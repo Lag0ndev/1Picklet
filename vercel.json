@@ -1,27 +1,7 @@
 {
   "rewrites": [
-    {
-      "source": "/store",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/collection",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    }
+    { "source": "/store", "destination": "/index.html" },
+    { "source": "/collection", "destination": "/index.html" },
+    { "source": "/((?!packs\\.json|styles\\.css|script\\.js|store\\.js|collection\\.js).*)", "destination": "/index.html" }
   ]
 }
